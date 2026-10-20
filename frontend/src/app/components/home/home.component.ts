@@ -11,12 +11,12 @@ export class HomeComponent {
   selectedDifficulty = 'EASY';
 
   difficulties = [
-    { value: 'EASY',   label: 'Easy',   icon: '🟢', desc: '~20-40 WPM' },
-    { value: 'MEDIUM', label: 'Medium', icon: '🟡', desc: '~40-70 WPM' },
-    { value: 'HARD',   label: 'Hard',   icon: '🔴', desc: '70+ WPM' }
+    { value: 'EASY', label: 'Easy', icon: '🟢', desc: '20-40 WPM' },
+    { value: 'MEDIUM', label: 'Medium', icon: '🟡', desc: '40-70 WPM' },
+    { value: 'HARD', label: 'Hard', icon: '🔴', desc: '70+ WPM' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   startTest(): void {
     if (!this.playerName.trim()) return;

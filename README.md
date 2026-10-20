@@ -71,34 +71,6 @@ A full-stack, real-time **Typing Speed & Accuracy Web Application** built with *
 
 ---
 
-## 🚀 Free Cloud Deployment Guide
-
-You can deploy this full-stack application **100% for free** using **Render**:
-
-### Option 1: One-Click Unified Container on Render (Recommended)
-
-1. Sign up for a free account at [render.com](https://render.com).
-2. Click **New +** → **Web Service**.
-3. Connect your GitHub repository: `Moamenaymannn/Type-Speed-Program`.
-4. Render will automatically detect the `Dockerfile` at the root:
-   - **Environment**: `Docker`
-   - **Plan**: `Free`
-5. Click **Create Web Service**. Render will:
-   - Build the Angular frontend
-   - Embed the static build into the Spring Boot backend
-   - Package the executable JAR
-   - Launch the unified app with a free HTTPS URL: `https://type-speed-program.onrender.com`!
-
-### Option 2: Decoupled Deployment (Frontend on Vercel + Backend on Render)
-
-- **Backend (Render)**: Deploy as a Docker Web Service pointing to `backend/`.
-- **Frontend (Vercel)**:
-  1. Import the repository on [Vercel](https://vercel.com).
-  2. Set Root Directory to `frontend`.
-  3. In `frontend/src/environments/environment.prod.ts`, set `apiUrl` to your Render backend URL (e.g., `https://your-backend.onrender.com/api`).
-  4. Deploy!
-
----
 
 ## 💻 Local Development Setup
 

@@ -43,12 +43,12 @@ export class ResultsComponent implements OnInit {
     if (wpm >= 80 && acc >= 95) return 'Outstanding performance! You demonstrate excellent speed and precision. You\'re well above the average typist.';
     if (wpm >= 60) return 'You\'re typing faster than most people. With a bit more practice you can reach expert level.';
     if (wpm >= 40) return 'You\'re at an average typing speed. Regular practice sessions will significantly improve your WPM.';
-    return 'Keep practicing daily — even 10 minutes a day can boost your WPM dramatically within a few weeks.';
+    return 'Keep practicing daily-even 10 minutes a day can boost your WPM dramatically within a few weeks.';
   }
 
   get tips(): string[] {
     const tips: string[] = [];
-    if ((this.result?.accuracy || 0) < 90) tips.push('Focus on accuracy first — slow down and make fewer mistakes.');
+    if ((this.result?.accuracy || 0) < 90) tips.push('Focus on accuracy first-slow down and make fewer mistakes.');
     if ((this.result?.wpm || 0) < 40) tips.push('Practice with easy texts before moving to harder ones.');
     if ((this.result?.wpm || 0) >= 40) tips.push('Try a harder difficulty to challenge yourself further!');
     return tips;
