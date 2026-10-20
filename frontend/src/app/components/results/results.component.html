@@ -1,0 +1,51 @@
+<div class="page fade-in">
+          <div class="container" style="max-width: 650px; text-align: center;">
+
+                    <div class="result-icon">{{ resultIcon }}</div>
+
+                    <h2 class="mt-4">
+                              {{ resultTitle }}
+                    </h2>
+                    <p class="mt-2">
+                              Well done, <strong class="text-green">{{ result?.playerName }}</strong>! Here are your
+                              results.
+                    </p>
+
+                    <!-- Score cards -->
+                    <div class="score-grid mt-8">
+                              <div class="score-card primary">
+                                        <span class="sc-value">{{ result?.wpm }}</span>
+                                        <span class="sc-label">Words Per Minute</span>
+                              </div>
+                              <div class="score-card">
+                                        <span class="sc-value" [ngClass]="accuracyColor">{{ result?.accuracy }}%</span>
+                                        <span class="sc-label">Accuracy</span>
+                              </div>
+                              <div class="score-card">
+                                        <span class="sc-value">
+                                                  <span class="badge" [ngClass]="difficultyClass">{{ result?.difficulty
+                                                            }}</span>
+                                        </span>
+                                        <span class="sc-label">Difficulty</span>
+                              </div>
+                    </div>
+
+                    <!-- Performance message -->
+                    <div class="card mt-6" style="text-align:left;">
+                              <h3>📊 Performance Analysis</h3>
+                              <p class="mt-2">{{ performanceMessage }}</p>
+
+                              <div class="tips mt-4" *ngIf="tips.length > 0">
+                                        <p *ngFor="let tip of tips" class="tip-item">💡 {{ tip }}</p>
+                              </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="action-row mt-6">
+                              <button class="btn btn-primary" (click)="tryAgain()">Try Again 🔄</button>
+                              <button class="btn btn-secondary" (click)="viewLeaderboard()">Leaderboard 🏆</button>
+                              <button class="btn btn-secondary" (click)="goHome()">Home 🏠</button>
+                    </div>
+
+          </div>
+</div>

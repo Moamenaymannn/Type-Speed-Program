@@ -1,0 +1,83 @@
+<div class="page fade-in">
+          <div class="container">
+
+                    <!-- Header -->
+                    <div class="test-header">
+                              <div>
+                                        <h2>Typing Test</h2>
+                                        <p class="mt-2">
+                                                  Player: <strong class="text-green">{{ playerName }}</strong>
+                                                  &nbsp;|&nbsp;
+                                                  <span class="badge" [ngClass]="difficultyClass">{{ difficulty
+                                                            }}</span>
+                                        </p>
+                              </div>
+                              <button class="btn btn-secondary" (click)="goHome()">← Back</button>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="stats-bar mt-6">
+                              <div class="stat-badge">
+                                        <span class="value text-green">{{ wpm }}</span>
+                                        <span class="label">WPM</span>
+                              </div>
+                              <div class="stat-badge">
+                                        <span class="value" [ngClass]="accuracyColor">{{ accuracy }}%</span>
+                                        <span class="label">Accuracy</span>
+                              </div>
+                              <div class="stat-badge">
+                                        <span class="value" [ngClass]="timerColor">{{ timeLeft }}s</span>
+                                        <span class="label">Time Left</span>
+                              </div>
+                              <div class="stat-badge">
+                                        <span class="value">{{ correctChars }}/{{ totalChars }}</span>
+                                        <span class="label">Characters</span>
+                              </div>
+                    </div>
+
+                    <!-- Loading -->
+                    <div *ngIf="loading" class="card mt-6 text-center">
+                              <div class="loading-spinner"></div>
+                              <p class="mt-4">Loading snippet...</p>
+                    </div>
+
+                    <!-- Text display -->
+                    <div *ngIf="!loading && snippet" class="card mt-6">
+                              <div class="snippet-text" id="snippet-display">
+                                        <span *ngFor="let char of snippetChars; let i = index"
+                                                  [ngClass]="getCharClass(i)">{{ char }}</span>
+                              </div>
+                    </div>
+
+                    <!-- Typing Input -->
+                    <div *ngIf="!loading && snippet" class="card mt-4">
+                              <textarea id="typing-input" [(ngModel)]="userInput" (input)="onInput()"
+                                        (keydown)="onKeyDown($event)" [disabled]="testFinished || !testStarted"
+                                        placeholder="{{ testStarted ? 'Type here...' : 'Click Start Test to begin!' }}"
+                                        rows="3"
+                                        style="font-family: var(--font-mono); font-size: 1rem; resize: none;"></textarea>
+
+                              <div class="btn-row mt-4">
+                                        <button class="btn btn-primary" *ngIf="!testStarted && !testFinished"
+                                                  (click)="startTest()">
+                                                  Start Test ▶
+                                        </button>
+                                        <button class="btn btn-secondary" *ngIf="testStarted && !testFinished"
+                                                  (click)="resetTest()">
+                                                  Reset ↺
+                                        </button>
+                                        <button class="btn btn-secondary" *ngIf="testFinished" (click)="resetTest()">
+                                                  Try Again ↺
+                                        </button>
+                              </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <p *ngIf="!testStarted && !testFinished" class="text-center text-muted mt-4"
+                              style="font-size: 0.9rem;">
+                              💡 Tip: Try to type as fast and accurately as possible. The timer starts when you click
+                              Start Test.
+                    </p>
+
+          </div>
+</div>

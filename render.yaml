@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: type-speed-program
+    runtime: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: CORS_ALLOWED_ORIGINS
+        value: "*"

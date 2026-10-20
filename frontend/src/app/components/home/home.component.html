@@ -1,0 +1,59 @@
+<div class="page fade-in">
+          <div class="container" style="max-width: 700px; text-align: center;">
+
+                    <div class="hero-icon">⌨️</div>
+
+                    <h1 class="mt-4">
+                              Test Your <span class="text-green">Typing Speed</span>
+                    </h1>
+                    <p class="mt-4" style="font-size: 1.1rem; max-width: 520px; margin: 16px auto 0;">
+                              Measure your words per minute, track your accuracy, and compete
+                              on the leaderboard. Simple, fast, and free.
+                    </p>
+
+                    <!-- Name input -->
+                    <div class="card mt-8" style="text-align: left;">
+                              <h3>Ready to start?</h3>
+                              <p class="mt-2 mb-4">Enter your name and pick a difficulty level.</p>
+
+                              <label class="form-label">Your Name</label>
+                              <input type="text" [(ngModel)]="playerName" placeholder="e.g. John Doe" maxlength="30"
+                                        style="margin-top: 8px;" />
+
+                              <label class="form-label mt-4"
+                                        style="display:block; margin-bottom: 8px;">Difficulty</label>
+                              <div class="difficulty-grid">
+                                        <button *ngFor="let d of difficulties" class="diff-btn"
+                                                  [class.selected]="selectedDifficulty === d.value"
+                                                  (click)="selectedDifficulty = d.value">
+                                                  <span class="diff-icon">{{ d.icon }}</span>
+                                                  <span class="diff-name">{{ d.label }}</span>
+                                                  <span class="diff-desc">{{ d.desc }}</span>
+                                        </button>
+                              </div>
+
+                              <button class="btn btn-primary mt-6"
+                                        style="width: 100%; justify-content: center; font-size: 1.05rem; padding: 14px;"
+                                        (click)="startTest()" [disabled]="!playerName.trim()">
+                                        Start Typing Test 🚀
+                              </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-row mt-6">
+                              <div class="stat-card">
+                                        <span class="stat-num">10</span>
+                                        <span class="stat-lbl">Text Snippets</span>
+                              </div>
+                              <div class="stat-card">
+                                        <span class="stat-num">3</span>
+                                        <span class="stat-lbl">Difficulty Levels</span>
+                              </div>
+                              <div class="stat-card">
+                                        <span class="stat-num">60s</span>
+                                        <span class="stat-lbl">Per Test</span>
+                              </div>
+                    </div>
+
+          </div>
+</div>

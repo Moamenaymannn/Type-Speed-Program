@@ -1,0 +1,52 @@
+.result-icon {
+          font-size: 5rem;
+          margin-top: 16px;
+}
+
+.score-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+}
+
+.score-card {
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          border-radius: var(--radius);
+          padding: 24px 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+}
+
+.score-card.primary {
+          border-color: var(--accent-green);
+          background: rgba(34, 197, 94, 0.05);
+}
+
+.sc-value {
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: var(--accent-green);
+          font-family: var(--font-mono);
+}
+
+.sc-label {
+          font-size: 0.8rem;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+}
+
+.tip-item {
+          margin-top: 8px;
+          color: var(--text-secondary);
+          font-size: 0.9rem;
+}
+
+.action-row {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+          flex-wrap: wrap;
+}
